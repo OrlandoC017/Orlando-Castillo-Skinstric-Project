@@ -1,0 +1,17 @@
+#header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1920px;
+    height: 64px;
+    padding-left: 48px;
+}
+
+#header p{
+    font-size: 14px;
+    padding-right: 16px;
+}
+
+.gray {
+    opacity: 0.6;
+}

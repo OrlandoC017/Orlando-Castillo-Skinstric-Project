@@ -1,6 +1,151 @@
 @import url(https://db.onlinewebfonts.com/c/0ab46e1b2f236c9fad58c1e34cdecdf1?family=Roobert+TRIAL);
+@import "tailwindcss";
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+
+}
 
 
 * {
-  background-color: white;
-  font-family: "Roobert TRIAL", sans-serif;}
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roobert TRIAL', sans-serif;
+  color: #1A1B1C;
+}
+
+h1 {
+  font-size: 750px;
+}
+
+#landingPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.landingContainer {
+  margin-top: 80px;
+  margin-bottom: 60px;
+  padding: 0 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    transition: all 0.8s ease;
+}
+
+.landingTitle {
+    font-size: 128px;
+    line-height: 1.2;
+    font-weight: 300;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.8s ease, text-align 0.8s ease;
+}
+
+.landingRight, .landingLeft{
+    position: relative;
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    top: 50%;                   
+    transform: translate(-50%, -50%);  
+    font-size: 14px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.leftOption, .rightOption, .rectangle {
+    transition: opacity 0.8s ease;
+}
+
+.leftOption{
+    left: 50%;
+    z-index: 2;
+}
+
+.rightOption{
+    left: 50%;
+    width: 150px;
+    z-index: 2;
+}
+
+.landingMain:has(.landingLeft:hover) .landingTitle {
+  transform: translateX(-15%);
+  text-align: right;  
+}
+
+.landingMain:has(.landingRight:hover) .landingTitle {
+  transform: translateX(15%);
+  text-align: left;  
+}
+
+.landingMain:has(.landingLeft:hover) .landingRight .rightOption,
+.landingMain:has(.landingLeft:hover) .landingRight .rectangle {
+  opacity: 0;
+}
+
+.landingMain:has(.landingRight:hover) .landingLeft .leftOption,
+.landingMain:has(.landingRight:hover) .landingLeft .rectangle {
+  opacity: 0;
+}
+
+.rectangle{
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.leftRectangle {
+    left: 50%;
+}
+
+.rightRectangle {
+    left: 50%;
+}
+
+.arrowIcon{
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.landingBottom{
+    margin-top: auto;
+    padding: 80px 48px 100px 48px;
+    width: 100%;
+};
+
+
+.landingPara{
+    text-align: left;
+    width: 400px;
+    padding-left: 52px;
+    font-size: 14px;
+}

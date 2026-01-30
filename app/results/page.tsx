@@ -31,6 +31,8 @@ export default function Results() {
       return;
     }
 
+    setLoading(true);
+
     try {
       const base64string = await toBase64(file);
 
@@ -48,14 +50,17 @@ export default function Results() {
 
       const data = await res.json();
       localStorage.setItem("analysisResuls", JSON.stringify(data));
-      alert("Image Analyzed Successfully");
-      router.push("/AI.Analysis")
+      
+      // Wait at least 2 seconds before showing alert and redirecting
+      setTimeout(() => {
+        alert("Image Analyzed Successfully");
+        router.push("/AI.Analysis")
+      }, 5000);
+      
       console.log("API Response:", data);
     } catch (error) {
       console.error("Error uploading image:", error);
       alert("Error analyzing image. Please try again.");
-    }
-    finally {
       setLoading(false);
     }
   }

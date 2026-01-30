@@ -1,0 +1,203 @@
+.analysisContainer{
+    margin: 0px 32px 20px 32px;
+    height: calc(100vh - 85px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.analysisMiddle{
+    display: flex;
+    justify-content: center;
+}
+
+.diamondWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 700px;
+    height: 700px;
+}
+
+.analysisRombuses{
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.diamondWrapper:has(.diamond:hover) .analysisRombuses{
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+.title{
+    font-weight: 700;
+}
+
+.analysisTop p{
+    font-size: 14px;
+    margin-left: 24px;
+}
+
+.analysisBottom{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.diamond {
+  position: absolute;
+  width: 20%;     
+  height: 20%;
+  background: #F4F4F4;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.2s ease-in-out;  
+}
+
+
+.diamond span {
+  transform: rotate(-45deg);
+}
+
+.diamondTop {
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  cursor: pointer;
+  background-color: #ebe6e7;
+}
+
+.diamondLeft {
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  cursor: no-drop;
+}
+
+.diamondRight {
+  right: 25%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  cursor: no-drop;
+}
+
+.diamondBottom {
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  cursor: no-drop;
+}
+
+.diamond:hover {
+    background-color: #858585;
+    scale: 1.05;
+}
+
+@media (max-width: 700px){
+  .diamond{
+    width: 120px;
+    height: 120px;
+    font-size: 14px;
+  }
+
+  .analysisTop{
+    order: -1;
+  }
+
+  .analysisBottom{
+    order: 0;
+    margin-top: 32px;
+  }
+
+  .analysisMiddle{
+    order: 1;
+  }
+
+  .diamondWrapper{
+    width: 500px;
+    height: 500px;
+  }
+
+  .analysisContainer{
+    justify-content: start;
+  }
+
+  .diamondTop {
+  top: 10%;
+  left: 50%;
+}
+
+.diamondLeft {
+  top: 45%;
+  left: 60%;
+}
+
+.diamondRight {
+  top: 45%;
+  left: 17%;
+}
+
+.diamondBottom {
+  top: 55%;
+  left: 50%;
+}
+}
+
+@media (max-width: 500px) {
+    .analysisBottom .arrowIcon{
+      display: none;
+    }
+
+    .analysisBottom .startButton {
+      border: 1px solid #1a1a2a;
+      background-color: #1a1a2a;
+      color: white;
+      border-radius: 5px;
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    .analysisBottom .startButton:first-of-type {
+      padding: 4px 32px;
+    }
+
+    .analysisBottom{
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .analysisTop p{
+      font-size: 12px;
+    }
+
+    .diamondTop {
+      top: 10%;
+      left: 50%;
+    }
+
+    .diamondLeft {
+      top: 45%;
+      left: 65%;
+    }
+
+    .diamondRight {
+      top: 45%;
+      left: 3%;
+    }
+
+    .diamondBottom {
+      top: 55%;
+      left: 50%;
+    }
+}

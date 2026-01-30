@@ -11,7 +11,8 @@
     justify-content: space-around;
 }
 
-.rombuses{
+
+.resultsMiddle .rombuses{
     position: relative;
     width: 100px;
     height: 100px;
@@ -25,6 +26,7 @@
 
 .resultsButton {
     transition: transform 0.2s ease-in-out;
+    animation: fadeIn 0.6s ease-in;
 }
 
 .resultsButton:hover{
@@ -37,12 +39,21 @@
     100% { transform: rotate(360deg); }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 .resultsLoadingState{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
+}
+
+.resultsLoadingState .rombuses{
+    animation: spin 15s linear infinite;
 }
 
 

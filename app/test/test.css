@@ -1,0 +1,162 @@
+.testTitle {
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 32px;
+}
+
+.testContainer {
+    margin: 0px 32px 20px 32px;
+    height: calc(100% - 60px);
+    width: 100%;
+    max-width: 1600px;
+}
+
+
+.testMiddle{
+    display: flex;
+    justify-content: center;
+}
+
+.rombuses{
+    position: relative;
+    animation: rotate 15s linear infinite;
+}
+
+.middleText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nameInput {
+    font-size: 50px;
+    border: none;
+    border-bottom: 2px solid #1A1B1C;
+    text-align: center;
+    outline: none;
+   
+}
+
+.nameInput::placeholder {
+    color: #1A1B1C;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.startButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1B1C;
+    text-decoration: none;
+}
+
+.thankYouText, .loadingText{
+    width: 400px;
+    font-size: 30px;
+    text-align: center;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounceDots {
+  0%, 20% { content: ""; }
+  40% { content: "."; }
+  60% { content: ".."; }
+  80%, 100% { content: "..."; }
+}
+
+.loadingText::after {
+  content: "";
+  animation: bounceDots 1s infinite;
+}
+
+@media (max-width:1200px) {
+    .startButton{
+        font-size: 18px;
+    }
+
+    .arrowIcon{
+        width: 40px;
+        height: 40px;
+    }
+
+    .nameInput{
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    .rombuses{
+        display: none;
+    }
+
+    .startButton{
+        margin-top: 16px;
+        border: 1px solid #1A1B1C;
+        padding: 8px;
+        color: white;
+        background-color: #1A1B1C;
+        border-radius: 5px;
+        font-size: 14;
+    }
+
+    .arrowIcon{
+        filter: invert(100%);
+        width: 20px;
+        height: 20px;
+    }
+
+    .middleText {
+        top: 42%;
+        border: 2px dashed #1A1B1C;
+        padding: 100px 50px;
+    }
+
+    .nameInput{
+        font-size: 32px;
+    }
+
+    .clickToType{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .middleText{
+        top: 35%;
+        padding: 80px 40px;
+    }
+
+    .nameInput{
+        font-size: 20px;
+    }
+
+    .clickToType{
+        font-size: 12;
+    }
+
+     .loadingText, .thankYouText {
+        font-size: 20px;   
+        width: 300px;
+    }
+
+}

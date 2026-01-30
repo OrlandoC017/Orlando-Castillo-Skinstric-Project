@@ -92,13 +92,11 @@ h1 {
 }
 
 .landingMain:has(.landingLeft:hover) .landingTitle {
-  transform: translateX(-15%);
-  text-align: right;  
+  transform: translateX(-15%); 
 }
 
 .landingMain:has(.landingRight:hover) .landingTitle {
   transform: translateX(15%);
-  text-align: left;  
 }
 
 .landingMain:has(.landingLeft:hover) .landingRight .rightOption,
@@ -113,8 +111,8 @@ h1 {
 
 .rectangle{
     object-fit: cover;
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -148,4 +146,14 @@ h1 {
     width: 400px;
     padding-left: 52px;
     font-size: 14px;
+}
+
+.startButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1B1C;
+    text-decoration: none;
 }

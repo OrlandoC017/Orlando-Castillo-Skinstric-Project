@@ -192,11 +192,11 @@ h1 {
     color: #1A1B1C;
     text-decoration: none;
     transition: scale 0.3s ease;
+    width: fit-content;
 }
 
 .startButton:hover {
     scale: 1.05;
-    transition: 0.3s ease;
 }
 
 .startButton:hover .arrowIcon {

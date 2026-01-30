@@ -77,18 +77,6 @@
 }
 
 @media (max-width: 800px) {
-    .resultsContainer .startButton {
-        width: 100px;
-        order: 0; 
-        justify-content: center; 
-        margin-top: 8px; 
-        border: 1px solid #1A1B1C;
-        padding: 8px;
-        color: white;
-        background-color: #1A1B1C;
-        border-radius: 5px;
-    }
-
     .resultsContainer .arrowIcon {
         display: none;
     }
@@ -125,11 +113,5 @@
 @media (max-width: 500px) {
     .resultsTitle{
         font-size: 14px;
-    }
-
-
-     .resultsContainer .startButton {
-        font-size: 10px;
-        width: 50px;
     }
 }

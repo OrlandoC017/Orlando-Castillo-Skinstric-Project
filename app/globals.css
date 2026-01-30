@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-  font-size: 750px;
+    font-size: 750px;
 }
 
 #landingPage {
@@ -29,12 +29,12 @@ h1 {
 }
 
 .landingContainer {
-  flex: 1;
-  margin-top: 64px;
-  padding: 0 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex: 1;
+    margin-top: 64px;
+    padding: 0 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .landingMain {
@@ -93,6 +93,40 @@ h1 {
     z-index: 2;
 }
 
+.landingCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttonContainer {
+    display: none;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
+}
+
+.mobileButton {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: white;
+    color: #1A1B1C;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: scale 0.3s ease;
+}
+
+.mobileButton:hover {
+    scale: 1.05;
+}
+
 .landingMain:has(.landingLeft:hover) .landingTitle {
   transform: translateX(35%); 
 }
@@ -140,8 +174,7 @@ h1 {
     margin-top: auto;
     padding: 80px 48px 100px 48px;
     width: 100%;
-};
-
+}
 
 .landingPara{
     text-align: left;
@@ -177,5 +210,355 @@ h1 {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* Desktop - Under 1600px */
+@media (max-width: 1600px) {
+    .landingTitle {
+        font-size: 100px;
+    }
+
+    .landingRight, .landingLeft {
+        width: 300px;
+        height: 300px;
+    }
+
+    .rectangle {
+        width: 500px;
+        height: 500px;
+    }
+
+    .landingMain {
+        gap: 30px;
+    }
+
+    .landingContainer {
+        padding: 0 36px;
+    }
+
+    .landingPara {
+        width: 350px;
+        font-size: 13px;
+    }
+
+    .landingBottom {
+        padding: 60px 36px 80px 36px;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+}
+
+/* Desktop - Between 1024px and 1600px */
+@media (max-width: 1024px) {
+    .landingTitle {
+        font-size: 90px;
+    }
+
+    .landingRight, .landingLeft {
+        width: 270px;
+        height: 270px;
+    }
+
+    .rectangle {
+        width: 450px;
+        height: 450px;
+    }
+
+    .landingMain {
+        gap: 25px;
+    }
+
+    .landingContainer {
+        padding: 0 32px;
+        margin-top: 48px;
+    }
+
+    .landingPara {
+        width: 320px;
+        font-size: 13px;
+        padding-left: 48px;
+    }
+
+    .landingBottom {
+        padding: 50px 32px 70px 32px;
+    }
+
+    .option {
+        font-size: 13px;
+    }
+
+    .arrowIcon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .startButton {
+        font-size: 22px;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+}
+
+/* Tablet Responsive (max-width: 768px) */
+@media (max-width: 768px) {
+    .landingTitle {
+        font-size: 60px;
+    }
+
+    .landingRight, .landingLeft {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .rectangle {
+        display: none;
+    }
+
+    .landingMain {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .option {
+        display: none;
+    }
+
+    .buttonContainer {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .mobileButton {
+        display: flex;
+        background-color: white;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .arrowIcon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .landingContainer {
+        padding: 0 16px;
+    }
+
+    .landingPara {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .landingBottom {
+        padding: 40px 24px 60px 24px;
+    }
+
+    /* Disable hover animations on tablets */
+    .landingMain:has(.landingLeft:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingLeft:hover) .landingRight .rightOption,
+    .landingMain:has(.landingLeft:hover) .landingRight .rectangle {
+        opacity: 1;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingLeft .leftOption,
+    .landingMain:has(.landingRight:hover) .landingLeft .rectangle {
+        opacity: 1;
+    }
+
+    .startButton:hover {
+        scale: 1;
+    }
+
+    .startButton:hover .arrowIcon {
+        scale: 1;
+    }
+}
+
+/* Tablet Responsive (max-width: 1024px but larger than 768px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .landingTitle {
+        font-size: 70px;
+    }
+
+    .landingRight, .landingLeft {
+        width: 220px;
+        height: 220px;
+    }
+
+    .rectangle {
+        width: 350px;
+        height: 350px;
+    }
+
+    .landingMain {
+        gap: 20px;
+    }
+
+    .option {
+        font-size: 12px;
+    }
+
+    .arrowIcon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .landingContainer {
+        padding: 0 20px;
+        margin-top: 48px;
+    }
+
+    .landingPara {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .landingBottom {
+        padding: 40px 24px 60px 24px;
+    }
+
+    .startButton {
+        font-size: 20px;
+    }
+
+    /* Disable hover animations */
+    .landingMain:has(.landingLeft:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingLeft:hover) .landingRight .rightOption,
+    .landingMain:has(.landingLeft:hover) .landingRight .rectangle {
+        opacity: 1;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingLeft .leftOption,
+    .landingMain:has(.landingRight:hover) .landingLeft .rectangle {
+        opacity: 1;
+    }
+
+    .startButton:hover {
+        scale: 1;
+    }
+
+    .startButton:hover .arrowIcon {
+        scale: 1;
+    }
+}
+
+/* Mobile Responsive (max-width: 480px) */
+@media (max-width: 480px) {
+    .landingTitle {
+        font-size: 40px;
+        padding: 10px;
+    }
+
+    .landingRight, .landingLeft {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .rectangle {
+        display: none;
+    }
+
+    .option {
+        display: none;
+    }
+
+    .buttonContainer {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .mobileButton {
+        display: flex;
+        background-color: #1A1B1C;
+        color: white;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .landingMain {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .arrowIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .landingContainer {
+        padding: 0 12px;
+        margin-top: 32px;
+    }
+
+    .landingPara {
+        width: 100%;
+        font-size: 11px;
+        padding-left: 0;
+    }
+
+    .landingBottom {
+        padding: 24px 12px 40px 12px;
+    }
+
+    .startButton {
+        font-size: 16px;
+    }
+
+    .leftOption, .rightOption {
+        font-size: 10px;
+    }
+
+    /* Disable hover animations on mobile */
+    .landingMain:has(.landingLeft:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingTitle {
+        transform: none;
+    }
+
+    .landingMain:has(.landingLeft:hover) .landingRight .rightOption,
+    .landingMain:has(.landingLeft:hover) .landingRight .rectangle {
+        opacity: 1;
+    }
+
+    .landingMain:has(.landingRight:hover) .landingLeft .leftOption,
+    .landingMain:has(.landingRight:hover) .landingLeft .rectangle {
+        opacity: 1;
+    }
+
+    .startButton:hover {
+        scale: 1;
+    }
+
+    .startButton:hover .arrowIcon {
+        scale: 1;
     }
 }

@@ -17,15 +17,19 @@ export default function Home() {
             <img src="/RectangleLeft.svg" alt="left rectangle" className="rectangle leftRectangle" />
           </div>
 
-          <div data-aos="fade-up">
-
-                   <div className="landingCenter">
+        <div className="landingCenter">
           <h1 className="landingTitle">Sophisticated Skincare</h1>
-        </div> 
+          <div className="buttonContainer">
+            <button className="mobileButton uppercase">
+              <img src="/buttin-icon-shrunk (left).svg" alt="left arrow" className="arrowIcon" />
+              Discover A.I
+            </button>
+            <Link href="/test" className="mobileButton uppercase">
+              <img src="/buttin-icon-shrunk (right).svg" alt="right arrow" className="arrowIcon" />
+              Take Test
+            </Link>
           </div>
-
-
-
+        </div>
 
 
         <div className="landingRight">

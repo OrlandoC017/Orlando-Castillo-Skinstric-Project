@@ -23,6 +23,15 @@
     
 }
 
+.resultsButton {
+    transition: transform 0.2s ease-in-out;
+}
+
+.resultsButton:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

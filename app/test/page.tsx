@@ -102,9 +102,12 @@ export default function page() {
           <img src="/buttin-icon-shrunk (left).svg" alt="" className="arrowIcon" />
           Back
         </Link>
-        <Link href="/results" className="startButton uppercase">
-        Proceed
-        <img src="/buttin-icon-shrunk (right).svg" alt="" className="arrowIcon arrowFlipped" /></Link>
+        {finished && (
+          <Link href="/results" className="startButton uppercase" style={{ animation: "fadeIn 0.6s ease-in" }}>
+            Proceed
+            <img src="/buttin-icon-shrunk (right).svg" alt="" className="arrowIcon arrowFlipped" />
+          </Link>
+        )}
       </div>
     </div>
   );

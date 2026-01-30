@@ -29,8 +29,8 @@ h1 {
 }
 
 .landingContainer {
-  margin-top: 80px;
-  margin-bottom: 60px;
+  flex: 1;
+  margin-top: 64px;
   padding: 0 48px;
   display: flex;
   justify-content: center;

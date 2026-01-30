@@ -67,10 +67,10 @@ export default function Results() {
         {!loading ? (
           <>
             <div className="resultsMiddle">
-              <Link href="/camera/capture" className="cameraButton">
+              <Link href="/camera/capture" className="cameraButton resultsButton">
                 <img src="/CameraPackage.svg" />
               </Link>
-              <button className="galleryButton" onClick={handleClick}>
+              <button className="galleryButton resultsButton" onClick={handleClick}>
                 <img src="/GalleryPackage.svg" />
               </button>
               <input
@@ -88,7 +88,7 @@ export default function Results() {
             <h3>Preparing Your Analysis</h3>
           </div>
         )}
-        <Link href="/Test" className="startButton uppercase">
+        <Link href="/test" className="startButton uppercase">
           <img className="arrowIcon" src="/buttin-icon-shrunk (left).svg" />
           Back
         </Link>

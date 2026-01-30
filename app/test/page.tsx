@@ -46,6 +46,7 @@ export default function page() {
         );
         const data = await response.json();
         setFinished(true);
+        localStorage.setItem("userName", name);
       } catch (error) {
         console.error("Error:", error);
       } finally {
@@ -71,8 +72,7 @@ export default function page() {
               <p className="loadingText">Processing</p>
             ) : finished ? (
               <p className="thankYouText">
-                Thank You!
-                <br /> Proceed to the next step!
+                Proceed to the next step, {name}
               </p>
             ) : (
               <>

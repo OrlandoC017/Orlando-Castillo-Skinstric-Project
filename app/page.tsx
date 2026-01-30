@@ -17,9 +17,15 @@ export default function Home() {
             <img src="/RectangleLeft.svg" alt="left rectangle" className="rectangle leftRectangle" />
           </div>
 
-        <div className="landingCenter">
+          <div data-aos="fade-up">
+
+                   <div className="landingCenter">
           <h1 className="landingTitle">Sophisticated Skincare</h1>
-        </div>
+        </div> 
+          </div>
+
+
+
 
 
         <div className="landingRight">

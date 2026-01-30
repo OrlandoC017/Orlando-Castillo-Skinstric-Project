@@ -49,13 +49,13 @@ export default function Results() {
       });
 
       const data = await res.json();
-      localStorage.setItem("analysisResuls", JSON.stringify(data));
+      localStorage.setItem("analysisResults", JSON.stringify(data));
       
       // Wait at least 2 seconds before showing alert and redirecting
       setTimeout(() => {
         alert("Image Analyzed Successfully");
         router.push("/AI.Analysis")
-      }, 5000);
+      }, 3000);
       
       console.log("API Response:", data);
     } catch (error) {

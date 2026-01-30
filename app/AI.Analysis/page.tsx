@@ -17,7 +17,7 @@ export default function page() {
         <div className="analysisMiddle">
           <div className="diamondWrapper">
             <img className="rombuses analysisRombuses" src="/rombuses.svg" />
-            <Link href="/summary" className='diamond diamondTop uppercase'>Demographics</Link>
+            <Link href="/summary" className='diamond diamondTop uppercase'><span>Demographics</span></Link>
             <button className="diamond diamondLeft uppercase"><span>Skin Type Details</span></button>
             <button className="diamond diamondRight uppercase"><span>Cosmetic Concerns</span></button>
             <button className="diamond diamondBottom uppercase"><span>Weather</span></button>

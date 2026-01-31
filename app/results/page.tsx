@@ -8,10 +8,24 @@ import { useRouter } from 'next/navigation'
 
 export default function Results() {
   const [loading, setLoading] = React.useState(false);
+  const [showFloatInfo, setShowFloatInfo] = React.useState(false);
   const router = useRouter();
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
-  const handleClick = () => {
+  const handleCameraClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowFloatInfo(!showFloatInfo);
+  }
+
+  const handleDeny = () => {
+    setShowFloatInfo(false);
+  }
+
+  const handleAllow = () => {
+    router.push('/camera/capture');
+  }
+
+  const handleGalleryClick = () => {
     fileInputRef.current?.click();
   }
 
@@ -72,10 +86,27 @@ export default function Results() {
         {!loading ? (
           <>
             <div className="resultsMiddle">
-              <Link href="/camera/capture" className="cameraButton resultsButton">
-                <img src="/CameraPackage.svg" />
-              </Link>
-              <button className="galleryButton resultsButton" onClick={handleClick}>
+              <div className="cameraButtonContainer">
+                <button onClick={handleCameraClick} className="cameraButton resultsButton">
+                  <img src="/CameraPackage.svg" />
+                </button>
+                {showFloatInfo && (
+                  <div className="floatInfo">
+                    <div className="floatInfoContent">
+                      <p className="floatInfoText uppercase">Allow A.I to access your camera</p>
+                      <div className="floatInfoButtonContainer">
+                        <button className="floatInfoButton denyButton" onClick={handleDeny}>
+                          Deny
+                        </button>
+                        <button className="floatInfoButton allowButton" onClick={handleAllow}>
+                          Allow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <button className={`galleryButton resultsButton ${showFloatInfo ? 'disabled-gallery' : ''}`} onClick={handleGalleryClick}>
                 <img src="/GalleryPackage.svg" />
               </button>
               <input
@@ -93,10 +124,12 @@ export default function Results() {
             <h3>Preparing Your Analysis</h3>
           </div>
         )}
-        <Link href="/test" className="startButton uppercase">
-          <img className="arrowIcon" src="/buttin-icon-shrunk (left).svg" />
-          Back
-        </Link>
+        <div className="resultsBottom">
+          <Link href="/test" className="startButton uppercase">
+            <img className="arrowIcon" src="/buttin-icon-shrunk (left).svg" />
+            Back
+          </Link>
+        </div>
       </div>
     </div>
   );

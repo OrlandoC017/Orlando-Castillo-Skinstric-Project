@@ -149,6 +149,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 32px;
+    min-height: 80px;
+    gap: 20px;
 }
 
 .listExplanation.active{

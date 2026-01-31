@@ -11,6 +11,92 @@
     justify-content: space-around;
 }
 
+.cameraButtonContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.floatInfo {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    z-index: 10;
+    animation: slideIn 0.3s ease-out;
+    background: #1A1B1C;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 352px;
+    min-height: 136px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.floatInfoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 16px;
+}
+
+.floatInfoText {
+    color: #FCFCFC;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.floatInfoButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #FCFCFC;
+}
+
+.floatInfoButton {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #FCFCFC;
+    background: transparent;
+    color: #FCFCFC;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    text-transform: capitalize;
+}
+
+.floatInfoButton:hover {
+    opacity: 0.8;
+}
+
+.floatInfoButton:active {
+    opacity: 0.6;
+}
+
+.denyButton {
+    opacity: 0.7;
+}
+
+.allowButton {
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
 
 .resultsMiddle .rombuses{
     position: relative;
@@ -23,6 +109,16 @@
     display: flex;
 }
 
+.resultsBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 32px;
+}
+
 .resultsButton {
     transition: transform 0.2s ease-in-out;
     animation: fadeIn 0.6s ease-in;
@@ -32,6 +128,14 @@
     cursor: pointer;
     transform: scale(1.05);
     transition: transform 0.2s ease-in-out;
+}
+
+.disabled-gallery {
+    opacity: 0.5;
+}
+
+.disabled-gallery img {
+    filter: grayscale(100%);
 }
 @keyframes spin {
     0% { transform: rotate(0deg); }

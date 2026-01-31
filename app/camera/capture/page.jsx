@@ -160,7 +160,7 @@ const handleAccept = async () => {
                             <li>Frontal pose</li>
                             <li>Adequate lighting</li>
                         </ul>
-                        <button className="closeTipsBtn" onClick={() => setShowTipsModal(false)}>Got it</button>
+                        <button className="closeTipsBtn uppercase" onClick={() => setShowTipsModal(false)}>Got it</button>
                     </div>
                 </div>
             )}

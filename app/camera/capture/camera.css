@@ -75,17 +75,31 @@
     filter: brightness(0);
 }
 
-.startButton{
-    color: white;
-    transition: all 0.3s ease-in-out;
+.startButtonCamera {
+	color: #fff;
+	transition: all .3s ease-in-out;
+	display: flex;
+	gap: 16px;
+	align-items: center;
 }
 
-.startButton:hover{
+.startButtonCamera:hover{
     transform: scale(1.05);
 }
 
-.arrowIcon {
+.arrowIconCamera {
    filter: brightness(0) invert(1);
+}
+
+.arrowIconCameraProceed:hover {
+   color: black;
+}
+
+.arrowIconCameraProceed {
+    filter: brightness(0) invert(1);
+}
+.retake .arrowIconCamera {
+    filter: brightness(0);
 }
 
 .photoReview{
@@ -126,6 +140,9 @@
     padding: 10px 20px;
     background-color: white;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .retake:hover{
@@ -133,19 +150,30 @@
     color: white;
 }
 
+.retake:hover .arrowIcon{
+    filter: brightness(0) invert(1);
+}
+
 .acceptPhoto{
-    color: white;
+    color: #1a1a2a;
     font-size: 24px;
     cursor: pointer;
     border: 2px solid white;
     padding: 10px 20px;
-    background-color: transparent;
+    background-color: white;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .acceptPhoto:hover:not(:disabled){
-    background-color: white;
-    color: #1a1a2a;
+    background-color: #1a1a2a;
+    color: white;
+}
+
+.acceptPhoto:hover:not(:disabled) .arrowIcon{
+    filter: brightness(0) invert(1);
 }
 
 .acceptPhoto:disabled{
@@ -173,6 +201,12 @@
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
     width: fit-content;
+    transition: all 0.3s ease-in-out;
+}
+
+.bottomLeft:hover{
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .bottomMid li, .bottomMid p{
@@ -188,6 +222,12 @@
     width: fit-content;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.bottomMid:hover{
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 ol{

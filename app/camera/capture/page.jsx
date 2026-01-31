@@ -161,9 +161,13 @@ const handleAccept = async () => {
                 <div className="photoReviewPopup">
                     <img src={photoDataUrl} alt="Preview" className="photoReview" />
                     <div className="photoReviewButtons">
-                        <button className="retake" onClick={handleRetake}>Retake</button>
+                        <button className="retake" onClick={handleRetake}>
+                            <img className="arrowIcon" src="/buttin-icon-shrunk (left).svg" alt="back" />
+                            Retake
+                        </button>
                         <button className="acceptPhoto" onClick={handleAccept} disabled={loading}>
                             {loading ? "Processing..." : "Proceed"}
+                            <img className="arrowIcon" src="/buttin-icon-shrunk (right).svg" alt="forward" />
                         </button>
                     </div>
                 </div>
@@ -179,10 +183,10 @@ const handleAccept = async () => {
                 <div className="bottomLeft">
             <Link
               href="/results"
-              className="startButton uppercase"
+              className="startButtonCamera uppercase"
               onClick={handleCancel}
             >
-              <img className="arrowIcon" src="/buttin-icon-shrunk (left).svg" />
+              <img className="arrowIconCamera" src="/buttin-icon-shrunk (left).svg" />
               Back
             </Link>
             </div>

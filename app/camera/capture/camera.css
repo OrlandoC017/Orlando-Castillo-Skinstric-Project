@@ -34,6 +34,8 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
 }
 
 .videoButton{
@@ -170,7 +172,6 @@
 .bottomLeft{
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
-    border-radius: 8px;
     width: fit-content;
 }
 
@@ -187,7 +188,6 @@
     width: fit-content;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px 30px;
-    border-radius: 8px;
 }
 
 ol{

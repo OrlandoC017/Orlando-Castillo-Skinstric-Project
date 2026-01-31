@@ -178,7 +178,7 @@ const handleAccept = async () => {
             <div className="cameraBottom">
                 <div className="bottomLeft">
             <Link
-              href="/Results"
+              href="/results"
               className="startButton uppercase"
               onClick={handleCancel}
             >

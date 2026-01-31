@@ -11,6 +11,8 @@ export default function page() {
     const [cameraActive, setCameraActive] = React.useState(false);
     const [photoDataUrl, setPhotoDataUrl] = React.useState(null);
     const [name, setName] = React.useState("");
+    const [showTipsModal, setShowTipsModal] = React.useState(true);
+    const [isMobile, setIsMobile] = React.useState(false);
     const videoRef = React.useRef(null);
     const streamRef = React.useRef(null);
     const router = useRouter();
@@ -20,6 +22,15 @@ export default function page() {
     if (storedName) {
       setName(storedName);
     }
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const handleCameraClick = async () => {
@@ -139,6 +150,20 @@ const handleAccept = async () => {
     <div id ="camera">
         <Header section="Intro" />
         <div className="cameraContainer">
+            {isMobile && showTipsModal && cameraActive && (
+                <div className="tipsModal">
+                    <div className="tipsModalContent">
+                        <h2>Camera Tips</h2>
+                        <p>To get better results, make sure to have:</p>
+                        <ul>
+                            <li>Neutral expression</li>
+                            <li>Frontal pose</li>
+                            <li>Adequate lighting</li>
+                        </ul>
+                        <button className="closeTipsBtn" onClick={() => setShowTipsModal(false)}>Got it</button>
+                    </div>
+                </div>
+            )}
             {cameraActive && (
                 <div className="cameraPopup">
                     <video
@@ -149,10 +174,19 @@ const handleAccept = async () => {
                         muted />
 
                         <div className="videoButtons">
-                            <button className="videoButton" onClick={handleTakePhoto}>Take Photo</button>
-                            <button className="cameraCircle" onClick={handleTakePhoto} type="button">
-                                <img src="/camera icon.svg" alt="Camera" className="cameraIcon" />
-                            </button>
+                            {!isMobile && (
+                                <>
+                                    <button className="videoButton" onClick={handleTakePhoto}>Take Photo</button>
+                                    <button className="cameraCircle" onClick={handleTakePhoto} type="button">
+                                        <img src="/camera icon.svg" alt="Camera" className="cameraIcon" />
+                                    </button>
+                                </>
+                            )}
+                            {isMobile && (
+                                <button className="cameraCircle mobileOnly" onClick={handleTakePhoto} type="button">
+                                    <img src="/camera icon.svg" alt="Camera" className="cameraIcon" />
+                                </button>
+                            )}
                         </div>
                 </div>
             )}
@@ -180,35 +214,50 @@ const handleAccept = async () => {
             )}
 
             <div className="cameraBottom">
-                <div className="bottomLeft">
-            <Link
-              href="/results"
-              className="startButtonCamera uppercase"
-              onClick={handleCancel}
-            >
-              <img className="arrowIconCamera" src="/buttin-icon-shrunk (left).svg" />
-              Back
-            </Link>
-            </div>
+                {!isMobile && (
+                    <>
+                        <div className="bottomLeft">
+                            <Link
+                              href="/results"
+                              className="startButtonCamera uppercase"
+                              onClick={handleCancel}
+                            >
+                              <img className="arrowIconCamera" src="/buttin-icon-shrunk (left).svg" />
+                              Back
+                            </Link>
+                        </div>
 
-            <div className="bottomMid">
-                <p className="uppercase">To get better results, make sure to have</p>
-                <ol>
-                    <li className="uppercase">neutral expression</li>
-                    <li className="uppercase">frontal pose</li>
-                    <li className="uppercase">adequate lighting</li>
-                </ol>
-            </div>
+                        <div className="bottomMid">
+                            <p className="uppercase">To get better results, make sure to have</p>
+                            <ol>
+                                <li className="uppercase">neutral expression</li>
+                                <li className="uppercase">frontal pose</li>
+                                <li className="uppercase">adequate lighting</li>
+                            </ol>
+                        </div>
 
-            <div className="bottomRight">
-                {photoDataUrl && (
-                    <Link className="proceed startButrton uppercase" href = "/AI.Analysis" onClick={handleAccept}>
-                        Proceed
-                        <img className="arrowIcon" src="/buttin-icon-shrunk (right).svg" />
-                    </Link>
+                        <div className="bottomRight">
+                            {photoDataUrl && (
+                                <Link className="proceed startButrton uppercase" href = "/AI.Analysis" onClick={handleAccept}>
+                                    Proceed
+                                    <img className="arrowIcon" src="/buttin-icon-shrunk (right).svg" />
+                                </Link>
+                            )}
+                        </div>
+                    </>
                 )}
-            </div>
-
+                {isMobile && (
+                    <div className="mobileBottomContainer">
+                        <Link
+                          href="/results"
+                          className="startButtonCamera uppercase mobileBackBtn"
+                          onClick={handleCancel}
+                        >
+                          <img className="arrowIconCamera" src="/buttin-icon-shrunk (left).svg" />
+                          Back
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     </div>

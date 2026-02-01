@@ -159,12 +159,12 @@ const handleAccept = async () => {
             {isMobile && showTipsModal && cameraActive && (
                 <div className="tipsModal">
                     <div className="tipsModalContent">
-                        <h2>Camera Tips</h2>
-                        <p>To get better results, make sure to have:</p>
-                        <ul>
-                            <li>Neutral expression</li>
-                            <li>Frontal pose</li>
-                            <li>Adequate lighting</li>
+                        <h2 className="uppercase">Camera Tips</h2>
+                        <p className="uppercase">To get better results, make sure to have:</p>
+                        <ul className="uppercase">
+                            <li className="uppercase">Neutral expression</li>
+                            <li className="uppercase">Frontal pose</li>
+                            <li className="uppercase">Adequate lighting</li>
                         </ul>
                         <button className="closeTipsBtn uppercase" onClick={() => setShowTipsModal(false)}>Got it</button>
                     </div>

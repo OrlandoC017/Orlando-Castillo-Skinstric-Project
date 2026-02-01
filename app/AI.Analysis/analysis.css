@@ -162,6 +162,7 @@
       border-radius: 5px;
       padding: 4px;
       font-size: 12px;
+      transition: all 0.3s ease-in-out;
     }
 
     .analysisBottom .startButton:first-of-type {

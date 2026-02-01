@@ -55,6 +55,13 @@ h1 {
     transition: transform 0.8s ease, text-align 0.8s ease;
     animation: fadeIn 1.5s ease-in-out;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleWord {
+    display: block;
+    transition: transform 0.8s ease;
 }
 
 .landingRight, .landingLeft{
@@ -131,8 +138,29 @@ h1 {
   transform: translateX(35%); 
 }
 
+.landingMain:has(.landingLeft:hover) .titleWord:nth-child(1) {
+  transform: translateX(-15%);
+}
+
+.landingMain:has(.landingLeft:hover) .titleWord:nth-child(2) {
+  transform: translateX(6.45%);
+}
+
 .landingMain:has(.landingRight:hover) .landingTitle {
   transform: translateX(-35%);
+}
+
+.landingMain:has(.landingRight:hover) .titleWord:nth-child(1) {
+  transform: translateX(15%);
+}
+
+.landingMain:has(.landingRight:hover) .titleWord:nth-child(2) {
+  transform: translateX(-6.45%);
+}
+
+.landingMain:has(.landingLeft:hover) .titleWord,
+.landingMain:has(.landingRight:hover) .titleWord {
+  transition: transform 0.8s ease;
 }
 
 .landingMain:has(.landingLeft:hover) .landingRight .rightOption,

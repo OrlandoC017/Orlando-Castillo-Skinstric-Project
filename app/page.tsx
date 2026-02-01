@@ -18,7 +18,10 @@ export default function Home() {
           </div>
 
         <div className="landingCenter">
-          <h1 className="landingTitle">Sophisticated Skincare</h1>
+          <h1 className="landingTitle">
+            <span className="titleWord">Sophisticated</span>
+            <span className="titleWord">Skincare</span>
+          </h1>
           <div className="buttonContainer">
             <button className="mobileButton uppercase">
               <img src="/buttin-icon-shrunk (left).svg" alt="left arrow" className="arrowIcon" />

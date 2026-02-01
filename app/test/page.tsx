@@ -11,6 +11,17 @@ export default function page() {
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
   const [finished, setFinished] = useState(false);
+  const [error, setError] = useState("");
+
+  const isValidInput = (input: string): boolean => {
+    // Check if empty or only whitespace
+    if (input.trim().length === 0) return false;
+    // Check if contains numbers
+    if (/\d/.test(input)) return false;
+    // Check if only contains letters, spaces, and hyphens (common in names and locations)
+    if (!/^[a-zA-Z\s\-']+$/.test(input)) return false;
+    return true;
+  };
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (phase === "Name") {
@@ -24,12 +35,20 @@ export default function page() {
     if (event.key !== "Enter") return;
 
     if (phase === "Name") {
-      if (name.trim().length === 0) return;
+      if (!isValidInput(name)) {
+        setError("Name must contain only letters and cannot contain numbers");
+        return;
+      }
+      setError("");
       setPhase("Location");
     }
 
     if (phase === "Location") {
-      if (location.trim().length === 0) return;
+      if (!isValidInput(location)) {
+        setError("Location must contain only letters and cannot contain numbers");
+        return;
+      }
+      setError("");
       setLoading(true);
       setFinished(false);
 
@@ -79,6 +98,7 @@ export default function page() {
                 <p className="uppercase">
                   <span className="gray clickToType">Click to Type</span>
                 </p>
+                {error && <p style={{ color: "#ff4444", fontSize: "14px", marginBottom: "10px" }}>{error}</p>}
                 <input
                   type="text"
                   className="nameInput"

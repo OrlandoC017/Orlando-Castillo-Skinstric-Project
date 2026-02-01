@@ -193,6 +193,7 @@ const handleAccept = async () => {
 
             {photoDataUrl && (
                 <div className="photoReviewPopup">
+                    <p className="photoCaption">Great shot!</p>
                     <img src={photoDataUrl} alt="Preview" className="photoReview" />
                     <div className="photoReviewButtons">
                         <button className="retake" onClick={handleRetake}>

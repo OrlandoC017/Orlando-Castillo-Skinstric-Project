@@ -110,6 +110,14 @@
 
 }
 
+.photoCaption {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease-in;
+}
+
 .photoReviewPopup{
     display: flex;
     flex-direction: column;

@@ -217,6 +217,14 @@
     .rombuses{
         display: none;
     }
+
+    .startButton {
+        background-color: #1A1B1C;
+        color: white;
+        padding: 8px;
+        margin-top: 10px;
+
+    }
 }
 
 @media (max-width: 500px) {

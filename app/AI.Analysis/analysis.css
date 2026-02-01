@@ -116,6 +116,10 @@
     margin-top: 32px;
   }
 
+  .analysisBottom .arrowIcon{
+    filter: brightness(0) invert(1);
+  }
+
   .analysisMiddle{
     order: 1;
   }
@@ -152,7 +156,7 @@
 
 @media (max-width: 500px) {
     .analysisBottom .arrowIcon{
-      display: none;
+      filter: brightness(0) invert(1);
     }
 
     .analysisBottom .startButton {

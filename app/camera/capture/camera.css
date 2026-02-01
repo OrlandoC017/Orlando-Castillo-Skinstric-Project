@@ -335,14 +335,14 @@ ol{
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -600%);
 }
 
 .videoButtons .mobileOnly {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    
 }
 
 /* Responsive Design */
@@ -400,4 +400,10 @@ ol{
     40% { content: "."; }
     60% { content: ".."; }
     80%, 100% { content: "..."; }
+}
+
+@media (max-width: 768px) {
+    .analyzingText:after {
+        display: none;
+    }
 }

@@ -116,11 +116,11 @@ export default function page() {
 
 const handleAccept = async () => {
   if (!photoDataUrl) return;
-  const base64Data = photoDataUrl.split(',')[1];
+  setLoading(true);
+  
+  const startTime = Date.now();
+  
   try {
-    const file = new File([Uint8Array.from(atob(base64Data), c => c.charCodeAt(0))], 'photo.png', { type: 'image/png' });
-    await processFile(file);
-    
     const payload = { image: photoDataUrl };
     const res = await fetch(
       "https://us-central1-api-skinstric-ai.cloudfunctions.net/skinstricPhaseTwo",
@@ -135,14 +135,20 @@ const handleAccept = async () => {
     
     const data = await res.json();
     localStorage.setItem("analysisResults", JSON.stringify(data));
-    router.push('/AI.Analysis');
+    
+    // Ensure at least 3 seconds of loading state
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, 3000 - elapsedTime);
+    
+    setTimeout(() => {
+      router.push('/AI.Analysis');
+    }, remainingTime);
   } catch (error) {
     console.error("Error processing file:", error);
-    alert("There was an error processing the image. Please try again.");
-  } finally {
     setLoading(false);
     setCameraActive(false);
     setPhotoDataUrl(null);
+    alert("There was an error processing the image. Please try again.");
   }
 };
 
@@ -208,9 +214,10 @@ const handleAccept = async () => {
                 </div>
             )}
             {loading && (
-                <div className="resultsLoadingState">
-                    <img src="/rombuses.svg" alt="" className="rombuses" />
-                    <h3>Preparing your analysis, {name}</h3>
+                <div className="photoReviewPopup">
+                    <div className="analyzingBox">
+                        <p className="analyzingText">Analyzing your image</p>
+                    </div>
                 </div>
             )}
 
@@ -239,10 +246,10 @@ const handleAccept = async () => {
 
                         <div className="bottomRight">
                             {photoDataUrl && (
-                                <Link className="proceed startButrton uppercase" href = "/AI.Analysis" onClick={handleAccept}>
-                                    Proceed
+                                <button className="proceed startButrton uppercase" onClick={handleAccept} disabled={loading}>
+                                    {loading ? "Processing..." : "Proceed"}
                                     <img className="arrowIcon" src="/buttin-icon-shrunk (right).svg" />
-                                </Link>
+                                </button>
                             )}
                         </div>
                     </>

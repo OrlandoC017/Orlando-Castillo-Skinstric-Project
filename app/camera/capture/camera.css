@@ -370,3 +370,34 @@ ol{
 
     }
 }
+
+.analyzingBox {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 60px 80px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #1A1B1C;
+    width: fit-content;
+    min-width: 500px;
+}
+
+.analyzingText {
+    color: white;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.analyzingText:after {
+    content: "";
+    animation: bounceDots 1s infinite;
+}
+
+@keyframes bounceDots {
+    0%, 20% { content: ""; }
+    40% { content: "."; }
+    60% { content: ".."; }
+    80%, 100% { content: "..."; }
+}
